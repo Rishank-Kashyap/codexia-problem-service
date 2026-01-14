@@ -1,0 +1,19 @@
+{
+  "name": "problem-service",
+  "version": "1.0.0",
+  "description": "This is admin service to manage problems of Codexia.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rishank-Kashyap/codexia-problem-service.git"
+  },
+  "author": "Rishank Kashyap",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rishank-Kashyap/codexia-problem-service/issues"
+  },
+  "homepage": "https://github.com/Rishank-Kashyap/codexia-problem-service#readme"
+}
