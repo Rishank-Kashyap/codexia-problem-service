@@ -4,6 +4,8 @@
   "description": "This is admin service to manage problems of Codexia.",
   "main": "index.js",
   "scripts": {
+    "dev": "npx nodemon src/index.js",
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/Rishank-Kashyap/codexia-problem-service/issues"
   },
-  "homepage": "https://github.com/Rishank-Kashyap/codexia-problem-service#readme"
+  "homepage": "https://github.com/Rishank-Kashyap/codexia-problem-service#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11"
+  }
 }
