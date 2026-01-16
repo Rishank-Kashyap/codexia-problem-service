@@ -1,25 +1,48 @@
+const { BadRequest } = require("../errors/badrequest.error");
+const { NotImplementedError } = require("../errors/notImplemented.error");
+
 function pingProblemController(req, res) {
   return res.json({ message: "Ping check for Problem Controller" });
 }
 
-function addProblem(req, res) {
-  return res.status(501).json({ message: "Not Implemented" });
+function addProblem(req, res, next) {
+  try {
+    throw new BadRequest("Property Name", { missing: ["Property Name"] });
+  } catch (error) {
+    next(error);
+  }
 }
 
 function getProblem(req, res) {
-  return res.status(501).json({ message: "Not Implemented" });
+  try {
+    throw new BadRequest("Property Name", { missing: ["Property Name"] });
+  } catch (error) {
+    next(error);
+  }
 }
 
 function getProblems(req, res) {
-  return res.status(501).json({ message: "Not Implemented" });
+  try {
+    throw new BadRequest("Property Name", { missing: ["Property Name"] });
+  } catch (error) {
+    next(error);
+  }
 }
 
 function updateProblem(req, res) {
-  return res.status(501).json({ message: "Not Implemented" });
+  try {
+    throw new BadRequest("Property Name", { missing: ["Property Name"] });
+  } catch (error) {
+    next(error);
+  }
 }
 
 function deleteProblem(req, res) {
-  return res.status(501).json({ message: "Not Implemented" });
+  try {
+    throw new BadRequest("Property Name", { missing: ["Property Name"] });
+  } catch (error) {
+    next(error);
+  }
 }
 
 module.exports = {
