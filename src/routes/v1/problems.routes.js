@@ -5,7 +5,7 @@ const problemRouter = express.Router();
 
 problemRouter.get("/ping", ProblemController.pingProblemController);
 
-problemRouter.get("/:id", ProblemController.getProblems);
+problemRouter.get("/:id", ProblemController.getProblem);
 
 problemRouter.get("/", ProblemController.getProblems);
 
