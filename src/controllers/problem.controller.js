@@ -1,4 +1,3 @@
-const { BadRequest } = require("../errors/badrequest.error");
 const { NotImplementedError } = require("../errors/notImplemented.error");
 
 function pingProblemController(req, res) {
@@ -7,7 +6,7 @@ function pingProblemController(req, res) {
 
 function addProblem(req, res, next) {
   try {
-    throw new BadRequest("Property Name", { missing: ["Property Name"] });
+    throw new NotImplementedError("Add Problem");
   } catch (error) {
     next(error);
   }
@@ -15,7 +14,7 @@ function addProblem(req, res, next) {
 
 function getProblem(req, res) {
   try {
-    throw new BadRequest("Property Name", { missing: ["Property Name"] });
+    throw new NotImplementedError("Get Problem");
   } catch (error) {
     next(error);
   }
@@ -23,7 +22,7 @@ function getProblem(req, res) {
 
 function getProblems(req, res) {
   try {
-    throw new BadRequest("Property Name", { missing: ["Property Name"] });
+    throw new NotImplementedError("Get all Problems");
   } catch (error) {
     next(error);
   }
@@ -31,7 +30,7 @@ function getProblems(req, res) {
 
 function updateProblem(req, res) {
   try {
-    throw new BadRequest("Property Name", { missing: ["Property Name"] });
+    throw new NotImplementedError("Update Problems");
   } catch (error) {
     next(error);
   }
@@ -39,7 +38,7 @@ function updateProblem(req, res) {
 
 function deleteProblem(req, res) {
   try {
-    throw new BadRequest("Property Name", { missing: ["Property Name"] });
+    throw new NotImplementedError("Delete Problems");
   } catch (error) {
     next(error);
   }
