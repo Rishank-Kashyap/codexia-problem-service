@@ -6,4 +6,4 @@ class NotImplementedError extends BaseError {
   }
 }
 
-module.exports = { NotImplementedError };
+module.exports = NotImplementedError;

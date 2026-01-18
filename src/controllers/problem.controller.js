@@ -1,4 +1,4 @@
-const { NotImplementedError } = require("../errors/notImplemented.error");
+const NotImplementedError = require("../errors/notImplemented.error");
 const { ProblemService } = require("../services");
 const { ProblemRepository } = require("../repositories");
 
@@ -10,7 +10,6 @@ function pingProblemController(req, res) {
 
 async function addProblem(req, res, next) {
   try {
-    console.log("Incoming request body", req.body);
     const newProblem = await problemService.createProblem(req.body);
     return res.status(201).json({
       success: true,
@@ -23,15 +22,21 @@ async function addProblem(req, res, next) {
   }
 }
 
-function getProblem(req, res) {
+async function getProblem(req, res, next) {
   try {
-    throw new NotImplementedError("Get Problem");
+    const response = await problemService.getProblem(req.params.id);
+    return res.status(200).json({
+      success: true,
+      message: `Successfully Fetched problem`,
+      error: {},
+      data: response,
+    });
   } catch (error) {
     next(error);
   }
 }
 
-async function getProblems(req, res) {
+async function getProblems(req, res, next) {
   try {
     const response = await problemService.getAllProblems();
     return res.status(200).json({
@@ -45,7 +50,7 @@ async function getProblems(req, res) {
   }
 }
 
-function updateProblem(req, res) {
+function updateProblem(req, res, next) {
   try {
     throw new NotImplementedError("Update Problems");
   } catch (error) {
@@ -53,7 +58,7 @@ function updateProblem(req, res) {
   }
 }
 
-function deleteProblem(req, res) {
+function deleteProblem(req, res, next) {
   try {
     throw new NotImplementedError("Delete Problems");
   } catch (error) {
