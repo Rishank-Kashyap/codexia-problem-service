@@ -46,6 +46,60 @@ class ProblemRepository {
       throw error;
     }
   }
+
+  async updateProblem(problemId, updateBody) {
+    try {
+      const allowedFields = [
+        "title",
+        "description",
+        "difficulty",
+        "testCases",
+        "editorial",
+      ];
+
+      const filteredUpdates = {};
+
+      for (const key of allowedFields) {
+        if (updateBody[key] !== undefined)
+          filteredUpdates[key] = updateBody[key];
+      }
+
+      //   const problem = await Problem.findByIdAndUpdate(problemId);
+
+      //   if (!problem) {
+      //     throw new NotFound("Problem", problemId);
+      //   }
+
+      //   Object.keys(filteredUpdates).forEach((key) => {
+      //     problem[key] = filteredUpdates[key];
+      //   });
+
+      //   await problem.save();
+      //   return problem;
+
+      // in the above implementation there are two db calls one to fetch and the other one to save but i the below code there is only one db call i.e. to fetch and update the db at once
+
+      // Problem.findByIdAndUpdate(problemId, …) :- Finds the document by _id.
+      // { $set: filteredUpdates } :- Only updates the fields present in updateBody, All other fields in the document remain unchanged.
+      // { new: true } :- Returns the updated document after changes.
+      // { runValidators: true } :- Ensures schema rules (like required, enum) are checked for updated fields.
+
+      const problem = await Problem.findByIdAndUpdate(
+        problemId,
+        { $set: filteredUpdates },
+        { new: true, runValidators: true }
+      );
+
+      if (!problem) {
+        throw new NotFound("Problem", problemId);
+      }
+
+      return problem;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
 }
 
 module.exports = ProblemRepository;
