@@ -5,7 +5,7 @@ class NotFound extends BaseError {
     super(
       "Not-found-error",
       404,
-      `The requested resource: ${resourceName} not found`,
+      `The requested resource ${resourceName} not found`,
       { resourceName, resourceValue }
     );
   }
