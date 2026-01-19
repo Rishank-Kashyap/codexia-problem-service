@@ -24,6 +24,7 @@ class ProblemRepository {
       const problems = await Problem.find({});
       console.log("problems", problems);
       if (problems.length == 0) {
+        logger.error(`There is no Problems in the db`);
         throw new NotFound("Problems", "");
       }
       return problems;
@@ -38,6 +39,7 @@ class ProblemRepository {
       const problem = await Problem.findById(problemId);
 
       if (!problem) {
+        logger.error(`Problem with id: ${problemId} not found in the db`);
         throw new NotFound("Problem", problemId);
       }
 
@@ -88,10 +90,11 @@ class ProblemRepository {
       const problem = await Problem.findByIdAndUpdate(
         problemId,
         { $set: filteredUpdates },
-        { new: true, runValidators: true }
+        { new: true, runValidators: true },
       );
 
       if (!problem) {
+        logger.error(`Problem with id: ${problemId} not found in the db`);
         throw new NotFound("Problem", problemId);
       }
 
